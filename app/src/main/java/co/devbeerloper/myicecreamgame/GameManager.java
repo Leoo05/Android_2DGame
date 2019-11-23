@@ -31,7 +31,7 @@ public class GameManager {
         if((tigre.getPositionY() >= danielVan.getPositionY() && tigre.getPositionY() <= danielVan.getPositionY() + danielVan.getSpriteIcecreamCar().getHeight()) ||
                 (tigre.getPositionY() + tigre.getSpriteKid().getHeight() >= danielVan.getPositionY() && tigre.getPositionY() + tigre.getSpriteKid().getHeight() <= danielVan.getPositionY() + danielVan.getSpriteIcecreamCar().getHeight())){
             if(tigre.getPositionX() >= danielVan.getPositionX() && danielVan.getPositionX() + tigre.getPositionX() <= danielVan.getSpriteIcecreamCar().getWidth()){
-                //return true;
+                return true;
             }
         }
         return false;

@@ -12,6 +12,7 @@ import java.util.Random;
 
 public class GameSurfaceView extends SurfaceView implements Runnable {
 
+    private boolean startCheking;
     private boolean isPlaying;
     private IceCreamCar icecreamCar;
     private Kid kid;
@@ -39,6 +40,7 @@ public class GameSurfaceView extends SurfaceView implements Runnable {
         daniel = new Daniel(context, screenWith, screenHeight);
         paint = new Paint();
         holder = getHolder();
+        startCheking = false;
         isPlaying = true;
         gameManager = new GameManager(kid,daniel,icecreamCar);
         gameManager.setScore(0);
@@ -61,7 +63,9 @@ public class GameSurfaceView extends SurfaceView implements Runnable {
         daniel.updateInfo();
         gameManager.checkKidColision();
         if(gameManager.checkDanielColision()){
-            isPlaying = false;
+            if(startCheking){
+                isPlaying = false;
+            }
         }
 
     }
@@ -110,6 +114,7 @@ public class GameSurfaceView extends SurfaceView implements Runnable {
             case MotionEvent.ACTION_UP:
                 System.out.println("TOUCH UP - STOP JUMPING");
                 icecreamCar.setJumping(false);
+                startCheking = true;
                 break;
             case MotionEvent.ACTION_DOWN:
                 System.out.println("TOUCH DOWN - JUMP");

@@ -20,10 +20,8 @@ public class GamePlay extends AppCompatActivity {
         Display display = getWindowManager().getDefaultDisplay();
         Point screenSize = new Point();
         display.getRealSize(screenSize);
-
         gameSurfaceView = new GameSurfaceView(this, screenSize.x, screenSize.y);
         setContentView(gameSurfaceView);
-
     }
 
 
