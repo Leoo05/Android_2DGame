@@ -11,8 +11,8 @@ public class Kid {
     public static final int SPRITE_SIZE_WIDTH =100;
     public static final int SPRITE_SIZE_HEIGTH=100;
     public static final float GRAVITY_FORCE=10;
-    private final int MIN_SPEED = 1;
-    private final int MAX_SPEED = 20;
+    private final int MIN_SPEED = 5;
+    private final int MAX_SPEED = 16;
 
     private float maxY;
     private float maxX;
@@ -106,15 +106,15 @@ public class Kid {
         if (speed > MAX_SPEED) {
             speed = MAX_SPEED;
         }
-        if (speed < MIN_SPEED) {
+        if (speed < MIN_SPEED || speed ==0) {
             speed = MIN_SPEED;
         }
         this.positionX -= speed;
         if (positionX < 0) {
             Random rnd = new Random();
-            positionX = maxX + (maxX * (float) rnd.nextInt(2));
+            positionX = maxX+SPRITE_SIZE_WIDTH;
             positionY =(float) rnd.nextInt((int) maxY);
-            speed=rnd.nextInt(20);
+            speed=rnd.nextInt(17);
         }
         if (positionY < 0) {
             positionY = 0;
